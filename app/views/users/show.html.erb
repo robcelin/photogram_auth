@@ -1,0 +1,46 @@
+
+<div class="page-header">
+
+  <h3>
+    <%= @user.username %>'s Photostream
+  </h3>
+
+</div>
+
+<div class="row">
+
+  <div class="col-md-12">
+
+    <table class="table table-striped table-hover">
+
+      <tr>
+        <th>Caption</th>
+        <th>Image</th>
+        <th>User</th>
+        <th>Actions</th>
+      </tr>
+
+      <% @user.photos.each do |photo| %>
+
+      <tr>
+        <td>
+          <%= photo.caption %>
+        </td>
+
+        <td>
+          <img src="<%= photo.image %>">
+        </td>
+        <td>
+          <%= photo.user_id %>
+        </td>
+
+        <td>
+          <a href="/photos/<%= photo.id %>" class="btn btn-primary">Show</a>
+        </td>
+      </tr>
+
+      <% end %>
+    </table>
+    
+  </div>
+</div>
